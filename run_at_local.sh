@@ -6,10 +6,11 @@ bluehive="@bluehive.circ.rochester.edu"
 
 echo "Please type your ${RED}NetID${NC}(____$bluehive). Press enter to continue."
 read netid
-tail -n 108 run_at_local.sh > ~/tmp_file
+tail -n 109 run_at_local.sh > ~/tmp_file
 cat ~/tmp_file | ssh $netid$bluehive 'cat > setup.sh;chmod 700 setup.sh'
 rm -f ~/tmp_file
 echo "Now this script will bring you to bluehive. You need run ${RED}'./setup.sh'${NC} to continue the setup."
+read -n 1 -s -p "Press any key to continue"
 ssh $netid$bluehive
 exit
 
@@ -106,7 +107,8 @@ done
 sbatch backup.sbatch
 rm -f backup.sbatch slurm*
 
-echo -e "Now the script is saved as ~/backup.sh. The next step is to open crontab to add or modify your scheduled task."
+echo -e "Now the script is saved as ~/backup.sh. The next step is to open ${RED}crontab${NC} to add or modify your scheduled task.\nFor more information about crontab, check ${RED}http://www.adminschoice.com/crontab-quick-reference${NC}"
+read -n 1 -s -p "Press any key to continue"
 crontab -e 
 
 if [[ $switch == 3 ]]
