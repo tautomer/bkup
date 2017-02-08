@@ -1,9 +1,7 @@
-# grab user id and send script to bluehive
-
 RED='\033[0;31m'
 YELLOW='\033[0;32m'
 CYAN='\033[0;36m'
-NC='\033[0m' # No Color
+NC='\033[0m' 
 bluehive="@bluehive.circ.rochester.edu"
 
 echo "Please type your ${RED}NetID${NC}(____$bluehive). Press enter to continue."
